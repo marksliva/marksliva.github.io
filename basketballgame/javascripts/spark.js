@@ -31,8 +31,7 @@ var leftWall = 100;
 var rightWall = 1100;
 var player_floor = 500;
 var ball_floor = 500;
-var refreshRate = 40;
-// var refreshRate = 10;
+var refreshRate = 60;
 var player_ceiling = 200;
 var ball_ceiling = 100;
 
@@ -58,8 +57,6 @@ function resetDelta(noun) {
 
 function collisionCheck() {
 
-  console.log(p2.state);
-
   if(ball.state == 'released'){
     if(ball.shot_by == 'p1' && Math.abs(ball.x - p1.x) > 100){
       ball.state = 'air'
@@ -69,7 +66,6 @@ function collisionCheck() {
       ball.state = 'air'
     }
   }
-  // console.log("col2: " + ball.state + ' ' + ball.shot_by );
   if((ball.state == 'ground' || ball.state == 'air') &&  euclidean_distance(ball, p2) < 40) {
     resetDelta(ball)
     ball.state = 'p2';
@@ -197,11 +193,7 @@ function gravityMove(noun){
         move_y_total -= 1.3;
         noun.power_y -= 3;
       }
-      // noun.y+= move_y_total;
       noun.y+= move_y_total;
-      // if(noun.name == 'p2'){
-      //   console.log(noun.y)
-      // }
       gravityMove(noun);
     }
     else{
@@ -416,7 +408,7 @@ function initialize_physics() {
 
   left_hoop.x = 193;
   left_hoop.y = 268;
-  right_hoop.x = 977;
+  right_hoop.x = 990;
   right_hoop.y = 268;
 
   ball.power_x = 0;
