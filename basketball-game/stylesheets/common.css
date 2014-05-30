@@ -1,0 +1,102 @@
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    margin: 0;
+    padding:20px;
+    background-color: #666 !important;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.flash.error {
+    color: #FB3A3A;
+    font-weight: bold;
+}
+
+.flash.message {
+    color: #16a11d;
+    font-weight: bold;
+}
+
+label.error {
+    color: #FB3A3A;
+    margin: 4px 0 5px 0;
+    padding: 0;
+    text-align: left;
+    width: 220px;
+}
+
+#canvas {
+    margin: 50px auto 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: auto;
+    background-color: #666;
+    background-image: url('../images/baseketball_court.png');
+    background-repeat: repeat;
+    background-size: 100% 100%;
+}
+
+#sidebar{
+    height: 700px;
+    float: left;
+    width: 100px;
+    color: #666;
+    margin: 30px auto 0 -20px;
+}
+
+.navbar a{
+    background-color: #f26621;
+    color: #666;
+}
+
+.navbar {
+    background-color: #f26621;
+
+}
+
+h1{
+    margin: 10px auto 0 auto;
+}
+
+p{
+    margin-top: 80px !important;
+}
+
+.well{
+    margin-top: 60px;
+}
+
+@font-face {
+  font-family: scoreboard;
+  src:url('../fonts/scoreboard.ttf');
+}
+#scoreboard {
+  margin-right: 7%;
+  margin-left: 15%;
+  font-family: scoreboard;
+}
+
+#p1-score,
+#p2-score{
+  font-size: 90px;
+  top: -400px;
+  position: relative;
+}
+
+#score-col1 {
+  float: left;
+}
+
+#score-col2 {
+  float: right;
+  /*margin-right: 60px;*/
+}
