@@ -86,6 +86,8 @@ function start_game(Physics) {
       height: 300,
       cof: 0
     });
+    player2.view = new Image();
+    player2.view.src = 'images/p2.png';
     bodies.push(ball);
     bodies.push(player1);
     bodies.push(player2);
