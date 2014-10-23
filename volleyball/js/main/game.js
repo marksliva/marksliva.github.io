@@ -61,6 +61,7 @@ function start_game(Physics) {
       ,mass: r
       ,x: right_x
       ,y: 200
+      ,cof: 0
       ,styles: {
     fillStyle: '#859900'
       }
@@ -71,8 +72,9 @@ function start_game(Physics) {
       // place the centroid of the rectangle at (300, 200)
       x: 300,
       y: 200,
-      width: 400,
-      height: 300
+      width: 89,
+      height: 300,
+      cof: 0
     });
     player1.view = new Image();
     player1.view.src = 'images/p1.png';
@@ -80,8 +82,9 @@ function start_game(Physics) {
       // place the centroid of the rectangle at (300, 200)
       x: (right_x + 20),
       y: 200,
-      width: 30,
-      height: 300
+      width: 89,
+      height: 300,
+      cof: 0
     });
     bodies.push(ball);
     bodies.push(player1);
