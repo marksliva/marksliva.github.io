@@ -56,24 +56,24 @@ function start_game(Physics) {
 
     r = 33;
     var right_x=1300;
+    var player_start_y = 500;
     ball = Physics.body('circle', {
       radius: r
-      ,mass: r
-      ,x: right_x
-      ,y: 200
+      ,x: (right_x + 15)
+      ,y: 100
+      ,mass: 5
       ,cof: 0
-      ,styles: {
-    fillStyle: '#859900'
-      }
     });
     ball.view = new Image();
     ball.view.src = 'images/volleyball.png'
     player1 = Physics.body('rectangle', {
       // place the centroid of the rectangle at (300, 200)
       x: 300,
-      y: 200,
+      y: player_start_y,
       width: 89,
       height: 300,
+      mass: 100000,
+      number: 1,
       cof: 0
     });
     player1.view = new Image();
@@ -81,9 +81,11 @@ function start_game(Physics) {
     player2 = Physics.body('rectangle', {
       // place the centroid of the rectangle at (300, 200)
       x: (right_x + 20),
-      y: 200,
+      y: player_start_y,
       width: 89,
       height: 300,
+      mass: 100000,
+      number: 2,
       cof: 0
     });
     player2.view = new Image();
@@ -100,6 +102,8 @@ function start_game(Physics) {
       ,min: 10
     })
       ,Physics.behavior('body-impulse-response')
+      ,Physics.behavior('body-collision-detection')
+      ,Physics.behavior('sweep-prune')
       ,edgeBounce
     ]);
 
@@ -167,6 +171,8 @@ var keys = [];
 
 function gameLoop(){
   setTimeout(function(){
+    //player2 695
+  //player1 530
     keyMove();
     gameLoop();
   },1000/refreshRate);
@@ -174,9 +180,7 @@ function gameLoop(){
 
 function moveRight(noun) {
   var x_position = noun.state.pos.x;
-  if(x_position < 350) {
     noun.state.acc.set(moveSpeed,null);
-  }
 }
 
 function moveLeft(noun) {
@@ -190,6 +194,12 @@ function jump(noun) {
 function keyChangeHandler(e){
   keys[e.keyCode] = e.type == 'keydown';
   e.preventDefault();
+}
+function playerScored(player) {
+  player_id = '#score-player' + player.number;
+  old_score = parseInt($(player_id).html());
+  new_score = old_score + 1;
+  $(player_id).html(new_score);
 }
 
 // Listen for when the user presses a key down or up
