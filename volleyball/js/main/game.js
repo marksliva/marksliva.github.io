@@ -59,31 +59,29 @@ function start_game(Physics) {
     var player_start_y = 500;
     ball = Physics.body('circle', {
       radius: r
-      ,x: (right_x + 15)
+      ,x: (right_x - 15)
       ,y: 100
       ,mass: 5
       ,cof: 0
     });
     ball.view = new Image();
     ball.view.src = 'images/volleyball.png'
-    player1 = Physics.body('rectangle', {
+    player1 = Physics.body('circle', {
       // place the centroid of the rectangle at (300, 200)
+      radius: 150,
       x: 300,
       y: player_start_y,
-      width: 89,
-      height: 300,
       mass: 100000,
       number: 1,
       cof: 0
     });
     player1.view = new Image();
     player1.view.src = 'images/p1.png';
-    player2 = Physics.body('rectangle', {
+    player2 = Physics.body('circle', {
       // place the centroid of the rectangle at (300, 200)
+      radius: 150,
       x: (right_x + 20),
       y: player_start_y,
-      width: 89,
-      height: 300,
       mass: 100000,
       number: 2,
       cof: 0
