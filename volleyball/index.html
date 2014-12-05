@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Volleyball Game</title>
-  <script data-main="js/main" src="js/require.js"></script>
-</head>
+  <head>
+    <title>Volleyball Game</title>
+    <script data-main="js/main" src="js/require.js"></script>
+    <style>
+      body {
+        background: url('images/volleyball-background.jpg');
+      }
+      #score {
+        position: absolute;
+        top: 250px;
+      }
+    </style>
+  </head>
+
   <body>
-    <h1>Score: <span id="score-player1">0</span> - <span id="score-player2">0</span></h1>
-    <img style="float: left; width: 1420px;" src="images/volleyball-background.jpg"/>
+    <h1 id="score">Score: <span id="score-player1">0</span> - <span id="score-player2">0</span></h1>
   </body>
 </html>

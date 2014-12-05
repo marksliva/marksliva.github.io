@@ -54,7 +54,7 @@ function start_game(Physics) {
     var v = Physics.vector(0, 300);
     var circle, r;
 
-    r = 33;
+    var r = 33;
     var right_x=1300;
     var player_start_y = 500;
     ball = Physics.body('circle', {
@@ -164,14 +164,35 @@ function keyMove() {
   });
 }
 
+function groundCheck() {
+  var ground_threshold = 780;
+  if(ball.state.pos.y > ground_threshold) {
+    if(ball.state.pos.x < 610) {
+      ball.state.vel.set(.15, -.8);
+      playerScored(player2);
+    }
+    else {
+      ball.state.vel.set(-.15, -.8);
+      playerScored(player1);
+    }
+  }
+  if(ball.state.pos.x < 40) {
+    ball.state.vel.set(.1, -.3);
+  }
+  else if(ball.state.pos.x > 1400) {
+    ball.state.vel.set(-.1, -.3);
+  }
+}
+
 var moveSpeed = .003;
 var keys = [];
 
 function gameLoop(){
   setTimeout(function(){
     //player2 695
-  //player1 530
+    //player1 530
     keyMove();
+    groundCheck();
     gameLoop();
   },1000/refreshRate);
 }
