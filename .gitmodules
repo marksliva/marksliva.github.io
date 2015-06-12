@@ -1,0 +1,3 @@
+[submodule "chrome-push-client"]
+	path = chrome-push-client
+	url = https://github.com/marksliva/chrome-push-client.git
